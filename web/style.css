@@ -1,0 +1,620 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #0a0e27;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Animated Star Background */
+.stars-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.stars, .stars2, .stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.stars {
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 60px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 50px 50px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 10px, #eee, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.stars2 {
+    background-image: 
+        radial-gradient(1px 1px at 40px 60px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 110px 90px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 170px 30px, #eee, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 250px 250px;
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+.stars3 {
+    background-image: 
+        radial-gradient(1px 1px at 70px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 150px 120px, #ddd, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    animation: twinkle 5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(ellipse at center, rgba(100, 50, 200, 0.2) 0%, transparent 70%);
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 10;
+}
+
+.astronaut-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto 40px;
+}
+
+.astronaut-hero {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 50px rgba(100, 200, 255, 0.8));
+    animation: float 6s ease-in-out infinite;
+    z-index: 5;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+    50% { transform: translate(-50%, -50%) translateY(-20px); }
+}
+
+.orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px dashed rgba(100, 200, 255, 0.3);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+.ring1 {
+    width: 350px;
+    height: 350px;
+}
+
+.ring2 {
+    width: 380px;
+    height: 380px;
+    animation-duration: 25s;
+}
+
+.ring3 {
+    width: 410px;
+    height: 410px;
+    animation-duration: 30s;
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.orbit-element {
+    position: absolute;
+    font-size: 40px;
+    animation: orbit 15s linear infinite;
+}
+
+.planet1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.planet2 {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    animation-duration: 20s;
+    animation-direction: reverse;
+}
+
+.planet3 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-duration: 18s;
+}
+
+@keyframes orbit {
+    from { transform: rotate(0deg) translateX(180px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(180px) rotate(-360deg); }
+}
+
+.game-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, #64c8ff, #ff64c8, #64c8ff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+    text-shadow: 0 0 30px rgba(100, 200, 255, 0.5);
+    margin-bottom: 20px;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.game-subtitle {
+    font-size: 1.5rem;
+    color: #64c8ff;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #64c8ff;
+    border: 2px solid #64c8ff;
+}
+
+.btn-secondary:hover {
+    background: #64c8ff;
+    color: #0a0e27;
+    transform: translateY(-3px);
+}
+
+.btn-github {
+    background: #24292e;
+    color: white;
+}
+
+.btn-github:hover {
+    background: #2f363d;
+    transform: translateY(-3px);
+}
+
+/* Section Styles */
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 60px;
+    background: linear-gradient(to right, #64c8ff, #ff64c8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Features Section */
+.features {
+    background: linear-gradient(180deg, #0a0e27 0%, #1a1e47 50%, #0a0e27 100%);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(100, 200, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(100, 200, 255, 0.3);
+    border-color: #64c8ff;
+}
+
+.feature-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #64c8ff;
+}
+
+.feature-card p {
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+/* Screenshots Section */
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.screenshot-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.screenshot-card:hover {
+    transform: scale(1.05);
+}
+
+.screenshot-placeholder {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(100, 200, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.screenshot-placeholder img {
+    max-width: 100%;
+    height: auto;
+}
+
+.screenshot-label {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(100, 200, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+/* Demo Screens */
+.demo-game-screen {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, #1a1e47 0%, #0a0e27 100%);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.demo-hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Orbitron', sans-serif;
+    color: #64c8ff;
+}
+
+.demo-player {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    font-size: 50px;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.demo-obstacle {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    font-size: 60px;
+    opacity: 0.7;
+}
+
+.demo-upgrade-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+.demo-skill {
+    background: rgba(100, 200, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid rgba(100, 200, 255, 0.4);
+    font-size: 1.2rem;
+}
+
+/* Stats Section */
+.stats {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.stat-card {
+    padding: 30px;
+}
+
+.stat-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Download Section */
+.download {
+    background: linear-gradient(180deg, #0a0e27 0%, #1a1e47 100%);
+}
+
+.download-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.download-info h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #64c8ff;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.download-info ul {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.download-info li {
+    padding: 10px 0;
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+.code-block {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(100, 200, 255, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+}
+
+.code-block code {
+    display: block;
+    color: #64c8ff;
+    margin: 8px 0;
+}
+
+.download-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn-download {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    font-size: 1.3rem;
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.btn-github-large {
+    background: #24292e;
+    color: white;
+    font-size: 1.2rem;
+    padding: 20px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Controls Section */
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.control-item {
+    text-align: center;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 2px solid rgba(100, 200, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.control-item:hover {
+    border-color: #64c8ff;
+    transform: translateY(-5px);
+}
+
+.key {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #64c8ff;
+    background: rgba(100, 200, 255, 0.1);
+    padding: 15px 30px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 15px;
+    border: 2px solid #64c8ff;
+}
+
+.control-desc {
+    color: #aaa;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+.footer {
+    background: #050810;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(100, 200, 255, 0.2);
+}
+
+.footer p {
+    margin: 10px 0;
+    color: #aaa;
+}
+
+.footer-links {
+    margin-top: 20px;
+}
+
+.footer-links a {
+    color: #64c8ff;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-links span {
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 3rem;
+    }
+    
+    .astronaut-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .astronaut-hero {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .download-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-grid,
+    .screenshot-grid,
+    .stats-grid,
+    .controls-grid {
+        grid-template-columns: 1fr;
+    }
+}

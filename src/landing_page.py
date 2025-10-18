@@ -141,9 +141,9 @@ class LandingPage:
             ratio = y / SCREEN_HEIGHT
             # Animated color shift
             color_shift = int(20 * math.sin(self.time * 0.5 + ratio * 2))
-            r = int(10 + (60 - 10) * ratio + color_shift)
-            g = int(10 + (30 - 10) * ratio)
-            b = int(40 + (100 - 40) * ratio + color_shift)
+            r = max(0, min(255, int(10 + (60 - 10) * ratio + color_shift)))
+            g = max(0, min(255, int(10 + (30 - 10) * ratio)))
+            b = max(0, min(255, int(40 + (100 - 40) * ratio + color_shift)))
             pygame.draw.line(screen, (r, g, b), (0, y), (SCREEN_WIDTH, y))
     
     def draw_star_field(self, screen):
