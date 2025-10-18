@@ -1,6 +1,12 @@
-# 🚀 SPACE RUN
+# 🚀 SPACE RUN - Character Development Edition
 
-A thrilling 2D endless runner space adventure game built with Python and Pygame!
+> An advanced endless runner space game with RPG-style character progression, animated sprites, and beautiful space aesthetics!
+
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Pygame](https://img.shields.io/badge/pygame-2.0+-green.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
+A professional-grade endless runner game featuring a chibi astronaut driving a futuristic hover-car through space, with complete RPG character development system!!
 
 ## 🎮 Game Overview
 
